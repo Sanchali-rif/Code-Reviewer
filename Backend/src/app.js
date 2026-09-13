@@ -3,4 +3,4 @@ const app=express()
 app.get("/",(req,res)=>{
     res.send("Hello world")
 })
-module.export=app
+module.exports=app
