@@ -1,9 +1,16 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI(process.env.GOOGLE_GEMINI_KEY);
-
-const interaction = await ai.interactions.create({
-  model: "gemini-3.8-flash",
-  input: "Explain how AI works in a few words",
+const ai = new GoogleGenAI({
+    apiKey: process.env.GOOGLE_GEMINI_KEY
 });
-console.log(interaction.output_text);
+
+async function generateContent(prompt) {
+    const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+    });
+
+    return response.text;
+}
+
+export default generateContent;
