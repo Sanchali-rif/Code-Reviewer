@@ -1,4 +1,4 @@
-import { GoogleGenAI } from "@google/genai";
+const { GoogleGenAI } = require("@google/genai");
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GOOGLE_GEMINI_KEY
@@ -6,11 +6,11 @@ const ai = new GoogleGenAI({
 
 async function generateContent(prompt) {
     const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
+        model: "gemini-3.8-flash",
         contents: prompt,
     });
 
     return response.text;
 }
 
-export default generateContent;
+module.exports = generateContent;
