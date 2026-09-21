@@ -3,9 +3,9 @@ const aiRoutes = require("../src/routes/ai.routes");
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Hello world");
+    res.send("Server is running");
 });
 
-app.use("/api/ai", aiRoutes);
+app.use("/ai", aiRoutes);
 
 module.exports = app;
