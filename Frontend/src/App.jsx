@@ -31,12 +31,32 @@ function App() {
 
       setReview(response.data);
     } catch (error) {
-      console.error("Review Error:", error);
+  console.error("Review Error:", error);
 
+  if (error.response) {
+    if (error.response.status === 500) {
       setReview(
-        "❌ Failed to get code review. Make sure the backend server is running."
+        "⚠️ The AI service is temporarily unavailable. Please try again in a moment."
+      );
+    } else if (error.response.status === 400) {
+      setReview(
+        "⚠️ Please enter some code before requesting a review."
+      );
+    } else {
+      setReview(
+        "⚠️ Something went wrong while generating the review."
       );
     }
+  } else if (error.request) {
+    setReview(
+      "⚠️ Unable to connect to the review service. Please check that the backend is running."
+    );
+  } else {
+    setReview(
+      "⚠️ Something went wrong. Please try again."
+    );
+  }
+}
   }
 
   return (
