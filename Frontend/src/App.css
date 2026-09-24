@@ -18,6 +18,12 @@ main {
   display: flex;
   gap: 1rem;
   background-color: #171717;
+  color: white;
+}
+
+main.light {
+  background-color: #f0f0f0;
+  color: black;
 }
 
 main .left,
@@ -28,9 +34,18 @@ main .right {
   border: 1px solid white;
 }
 
+main.light .left,
+main.light .right {
+  border: 1px solid #ccc;
+}
+
 main .left {
   background-color: #000000;
   position: relative;
+}
+
+main.light .left {
+  background-color: #ffffff;
 }
 
 .left .code,
@@ -41,6 +56,14 @@ main .left {
   margin: 0;
   border-radius: 0.7rem;
   background-color: #0c0c0c;
+}
+
+main.light .left .code,
+main.light .code pre,
+main.light .code pre code {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+  text-shadow: none !important;
 }
 
 main .left .review-btn {
@@ -54,6 +77,32 @@ main .left .review-btn {
   cursor: pointer;
   user-select: none;
   border-radius: 0.7rem;
+  border: none;
+}
+
+main.light .left .review-btn {
+  background-color: #007bff;
+  color: white;
+}
+
+main .left .theme-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+  border: none;
+  z-index: 10;
+}
+
+main.light .left .theme-btn {
+  background-color: #333;
+  color: #fff;
 }
 
 
@@ -62,4 +111,8 @@ main .right {
   padding: 1rem 2rem;
   font-size: 1.5rem;
   overflow: auto;
+}
+
+main.light .right {
+  background-color: #ffffff;
 }

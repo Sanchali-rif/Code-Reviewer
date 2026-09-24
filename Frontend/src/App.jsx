@@ -19,6 +19,7 @@ function App() {
 }`);
 
   const [review, setReview] = useState("");
+  const [isLightTheme, setIsLightTheme] = useState(false);
 
   async function reviewCode() {
     try {
@@ -60,9 +61,15 @@ function App() {
   }
 
   return (
-    <main>
+    <main className={isLightTheme ? "light" : ""}>
       {/* LEFT SIDE */}
       <div className="left">
+        <button
+          onClick={() => setIsLightTheme(!isLightTheme)}
+          className="theme-btn"
+        >
+          {isLightTheme ? "Dark Theme" : "Light Theme"}
+        </button>
 
         <div className="code">
           <Editor
